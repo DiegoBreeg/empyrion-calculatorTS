@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
 import { SaveItemService } from '../services/SaveItemService'
 import { FindItemService } from '../services/FindItemService'
-
+import { UpdateItemService } from '../services/UpdateItemService'
+import { CalculateItemService } from '../services/CalculateItemService'
 
 class ItemsController {
     async save(req: Request, res: Response): Promise<Response> {
@@ -19,9 +20,19 @@ class ItemsController {
     }
 
     async update(req: Request, res: Response): Promise<Response> {
-        console.log(req)
+        const { body, params } = req
+        const updateItemService = new UpdateItemService()
+        const response = await updateItemService.execute(body, params)
 
-        return res.status(201).json({ message: 'Item salvo com sucesso!' })
+        return res.status(201).json(response)
+    }
+
+    async calculate(req: Request, res: Response): Promise<Response> {
+        const { query } = req
+        const calculateItemService = new CalculateItemService(query)
+        const response = await calculateItemService.execute()
+
+        return res.status(201).json(response)
     }
 }
 
