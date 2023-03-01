@@ -29,8 +29,8 @@ class ItemsController {
 
     async calculate(req: Request, res: Response): Promise<Response> {
         const { query } = req
-        const calculateItemService = new CalculateItemService(query)
-        const response = await calculateItemService.execute()
+        const calculateItemService = new CalculateItemService()
+        const response = await calculateItemService.execute(query)
 
         return res.status(201).json(response)
     }

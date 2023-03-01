@@ -9,7 +9,7 @@ class SaveItemValidation {
 
         if (Object.keys(body).length != 3)
             return res.status(400).json({ message: 'Campo incorreto' })
-        if (!body.input || !Array.isArray(body.input) || body.input.length == 0)
+        if (!body.input || !Array.isArray(body.input))
             return res.status(400).json({ message: 'Está faltando input' })
         if (!body.name || typeof body.name !== 'string')
             return res.status(400).json({ message: 'Valor de name não é uma String' })
