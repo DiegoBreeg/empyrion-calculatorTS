@@ -14,6 +14,9 @@ class CalculateItemService {
         const name = query.name.replace('-', ' ')
         const amount = query.amount
         this.list[name] = { name, amount }
+        const haveItem = await Items.findOne({ name })
+        if (!haveItem)
+            return [{ message: 'item not found' }]
 
         while (Object.keys(this.list).length) {
             for (const property in this.list) {
