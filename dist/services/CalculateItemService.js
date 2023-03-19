@@ -20,7 +20,7 @@ class CalculateItemService {
     }
     execute(query) {
         return __awaiter(this, void 0, void 0, function* () {
-            const name = query.name.replace('-', ' ');
+            const name = query.name.split('-').join(' ');
             const amount = query.amount;
             this.list[name] = { name, amount };
             const haveItem = yield Items_1.Items.findOne({ name });
