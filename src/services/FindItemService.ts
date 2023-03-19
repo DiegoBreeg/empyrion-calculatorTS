@@ -6,7 +6,8 @@ class FindItemService {
     async execute(params: any): Promise<Array<any>> {
         if (!params.name)
             return await Items.find({})
-        params.name = params.name.split('-').join(' ')    
+        params.name = params.name.split('-').join(' ')
+        console.log(params)
         return await Items.find(params || {})
     }
 }
