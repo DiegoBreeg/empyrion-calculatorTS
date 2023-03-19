@@ -11,7 +11,7 @@ class CalculateItemService {
     public response: Array<object> = []
 
     async execute(query: any): Promise<Array<any>> {
-        const name = query.name.replace('-', ' ')
+        const name = query.name.split('-').join(' ')
         const amount = query.amount
         this.list[name] = { name, amount }
         const haveItem = await Items.findOne({ name })
