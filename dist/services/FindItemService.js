@@ -16,7 +16,8 @@ class FindItemService {
         return __awaiter(this, void 0, void 0, function* () {
             if (!params.name)
                 return yield Items_1.Items.find({});
-            params.name = params.name.replace('-', ' ');
+            params.name = params.name.split('-').join(' ');
+            console.log(params);
             return yield Items_1.Items.find(params || {});
         });
     }
