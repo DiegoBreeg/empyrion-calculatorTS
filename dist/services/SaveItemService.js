@@ -19,6 +19,7 @@ class SaveItemService {
             const item = new Items_1.Items({
                 name: body.name,
                 output: body.output,
+                types: body.types,
                 input
             });
             try {
