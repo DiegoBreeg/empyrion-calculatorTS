@@ -20,7 +20,7 @@ const ItemsSchema = new Schema<IItems>({
     name: { type: String, required: true, unique: true },
     output: { type: Number, required: true },
     placeable: [String],
-    category: { type: String },
+    category: String,
     input: { type: [InputSchema], required: true },
 })
 
