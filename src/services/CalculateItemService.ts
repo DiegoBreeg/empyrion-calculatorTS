@@ -15,6 +15,7 @@ class CalculateItemService {
         const amount = query.amount
         this.list[name] = { name, amount }
         const haveItem = await Items.findOne({ name })
+        console.log(typeof haveItem)
         if (!haveItem)
             return [{ message: 'item not found' }]
 
