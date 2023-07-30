@@ -5,6 +5,7 @@ interface IInput { name: string, amount: number }
 interface IItems {
     name: string,
     output: number,
+    types: String[],
     input: Array<IInput>
 }
 
@@ -17,6 +18,7 @@ const InputSchema = new Schema<IInput>({
 const ItemsSchema = new Schema<IItems>({
     name: { type: String, required: true, unique: true },
     output: { type: Number, required: true },
+    types: {type: []},
     input: { type: [InputSchema], required: true },
 })
 
