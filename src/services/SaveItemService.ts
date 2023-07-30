@@ -10,7 +10,8 @@ class SaveItemService {
         const item = new Items<IItems>({
             name: body.name,
             output: body.output,
-            types: body.types,
+            placeable: body.placeable,
+            category: body.category,
             input
         })
         try {
