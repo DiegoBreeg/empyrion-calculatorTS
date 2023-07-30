@@ -9,7 +9,8 @@ const InputSchema = new mongoose_1.Schema({
 const ItemsSchema = new mongoose_1.Schema({
     name: { type: String, required: true, unique: true },
     output: { type: Number, required: true },
-    types: { type: [] },
+    placeable: [String],
+    category: { type: String },
     input: { type: [InputSchema], required: true },
 });
 const Items = (0, mongoose_1.model)('Item', ItemsSchema);
